@@ -23,7 +23,7 @@ public class MainFrame extends JFrame {
 
 	private Image black_tea_lemonade = new ImageIcon(ManualFrame.class.getResource("menu/black_tea_lemonade.jpg")).getImage().getScaledInstance(360, 376, Image.SCALE_SMOOTH);
 	private Image cool_lime = new ImageIcon(ManualFrame.class.getResource("menu/cool_lime.jpg")).getImage().getScaledInstance(360, 376, Image.SCALE_SMOOTH);
-	private Image passion_tango_tea_lemonade = new ImageIcon(ManualFrame.class.getResource("menu/passion_tango.jpg")).getImage().getScaledInstance(360, 376, Image.SCALE_SMOOTH);
+	private Image passion_tango_tea_lemonade = new ImageIcon(ManualFrame.class.getResource("menu/passion_tango_tea_lemonade.jpg")).getImage().getScaledInstance(360, 376, Image.SCALE_SMOOTH);
 	private Image pink_grapefruit = new ImageIcon(ManualFrame.class.getResource("menu/pink_grapefruit.jpg")).getImage().getScaledInstance(360, 376, Image.SCALE_SMOOTH);
 	private Image lime_passion_tea = new ImageIcon(ManualFrame.class.getResource("menu/lime_passion_tea.jpg")).getImage().getScaledInstance(360, 376, Image.SCALE_SMOOTH);
 	private Image mint_blend_tea = new ImageIcon(ManualFrame.class.getResource("menu/mint_blend_tea.jpg")).getImage().getScaledInstance(360, 376, Image.SCALE_SMOOTH);
@@ -43,9 +43,7 @@ public class MainFrame extends JFrame {
 	private Image guatemala_antigua = new ImageIcon(ManualFrame.class.getResource("menu/guatemala_antigua.jpg")).getImage().getScaledInstance(360, 376, Image.SCALE_SMOOTH);
 
 	private JPanel contentPane;
-
-	private int total = 0;
-
+	
 	public MainFrame(String id) {
 		new CreateBasket(id);
 		
