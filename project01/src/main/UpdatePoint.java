@@ -10,7 +10,7 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 public class UpdatePoint {
-	public UpdatePoint(int point, String id) {
+	public UpdatePoint(int usedPoint, String id) {
 		Properties props = new Properties();
 		props.setProperty("dataSourceClassName", "oracle.jdbc.pool.OracleDataSource");
 		props.setProperty("dataSource.url", "jdbc:oracle:thin:@localhost:1521/XEPDB1");
@@ -25,13 +25,14 @@ public class UpdatePoint {
 			Connection conn = ds.getConnection();
 			
 			PreparedStatement pstmt = 
-					conn.prepareStatement("UPDATE users SET membership_point = ? WHERE user_name = ?");
+					conn.prepareStatement("UPDATE users SET membership_point = membership_point - ? WHERE user_name = ?");
 			
-			pstmt.setInt(1, point);
-			pstmt.setString(1, id);
+			pstmt.setInt(1, usedPoint);
+			pstmt.setString(2, id);
+			
 			int row = pstmt.executeUpdate();
 			
-			System.out.printf("%s: 맴버쉽 포인트 1000원이 추가되었습니다.\n", id);
+			System.out.printf("포인트를 사용 완료");
 
 			if (pstmt != null) pstmt.close();
 			if (conn != null) conn.close();			

@@ -119,7 +119,7 @@ public class OrderFrame extends JFrame {
 		lblPayment.setForeground(Color.WHITE);
 		lblPayment.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPayment.setFont(new Font("맑은 고딕", Font.BOLD, 20));
-		lblPayment.setBounds(200, 682, 200, 20);
+		lblPayment.setBounds(261, 681, 80, 20);
 		contentPane.add(lblPayment);
 		
 		int point = new LookupPoint().point(id);
@@ -137,10 +137,21 @@ public class OrderFrame extends JFrame {
 		lblUsePoint.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if (new GetTotalPrice().totalPrice() < point) {
-					lblTotalPrice.setText("총 결제 금액 : 0원");
+				
+				if (point >= 5000) {
+					if (new GetTotalPrice().totalPrice() < point) {
+						lblTotalPrice.setText("총 결제 금액 : 0원");
+						if (point - new GetTotalPrice().totalPrice() >= 5000) {
+							lblPoint.setText(String.format("사용 가능한 포인트 : %d원", point - new GetTotalPrice().totalPrice()));
+						} else {
+							lblPoint.setText(String.format("사용 가능한 포인트 : %d원", 0));
+						}
+					} else {
+						lblTotalPrice.setText(String.format("총 결제 금액 : %d원", new GetTotalPrice().totalPrice() - point));
+						lblPoint.setText(String.format("사용 가능한 포인트 : %d원", 0));
+					}
 				} else {
-					lblTotalPrice.setText(String.format("총 결제 금액 : %d원", new GetTotalPrice().totalPrice() - point));
+					JOptionPane.showMessageDialog(null, "포인트는 5000점 이상부터 사용 가능합니다.");
 				}
 			}
 			@Override
