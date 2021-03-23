@@ -89,7 +89,7 @@ public class OrderFrame extends JFrame {
 		lblTotalPrice.setText(String.format("총 결제 금액 : %d원", new GetTotalPrice().totalPrice()));
 		contentPane.add(lblTotalPrice);
 		
-		JLabel lblPayment = new JLabel("\uACB0\uC81C\uD558\uAE30");
+		JLabel lblPayment = new JLabel("\uC8FC\uBB38\uD558\uAE30");
 		lblPayment.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

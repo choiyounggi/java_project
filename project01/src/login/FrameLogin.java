@@ -18,6 +18,7 @@ import javax.swing.border.LineBorder;
 
 import main.CreateBasket;
 import main.MainFrame;
+import main.ManagerFrame;
 import signup.FrameSignup;
 
 import java.awt.Font;
@@ -105,16 +106,29 @@ public class FrameLogin extends JFrame {
 						lblLoginMessage.setText("");
 						JOptionPane.showMessageDialog(null, "로그인에 성공했습니다.");
 						FrameLogin.this.dispose();
-						EventQueue.invokeLater(new Runnable() {
-							public void run() {
-								try {
-									MainFrame frame = new MainFrame(userId);
-									frame.setVisible(true);
-								} catch (Exception e) {
-									e.printStackTrace();
+						if (userId.equals("admin")) {
+							EventQueue.invokeLater(new Runnable() {
+								public void run() {
+									try {
+										ManagerFrame frame = new ManagerFrame();
+										frame.setVisible(true);
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
 								}
-							}
-						});
+							});
+						} else {
+							EventQueue.invokeLater(new Runnable() {
+								public void run() {
+									try {
+										MainFrame frame = new MainFrame(userId);
+										frame.setVisible(true);
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
+								}
+							});
+						}
 					} else if(txtUsername.getText().equals("") || txtUsername.getText().equals("Username") ||
 							txtPassword.getText().equals("") || txtPassword.getText().equals("Password")) {
 						lblLoginMessage.setText("아이디, 비밀번호를 입력해주세요.");
@@ -171,16 +185,29 @@ public class FrameLogin extends JFrame {
 						lblLoginMessage.setText("");
 						JOptionPane.showMessageDialog(null, "로그인에 성공했습니다.");
 						FrameLogin.this.dispose();
-						EventQueue.invokeLater(new Runnable() {
-							public void run() {
-								try {
-									MainFrame frame = new MainFrame(userId);
-									frame.setVisible(true);
-								} catch (Exception e) {
-									e.printStackTrace();
+						if (userId.equals("admin")) {
+							EventQueue.invokeLater(new Runnable() {
+								public void run() {
+									try {
+										ManagerFrame frame = new ManagerFrame();
+										frame.setVisible(true);
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
 								}
-							}
-						});
+							});
+						} else {
+							EventQueue.invokeLater(new Runnable() {
+								public void run() {
+									try {
+										MainFrame frame = new MainFrame(userId);
+										frame.setVisible(true);
+									} catch (Exception e) {
+										e.printStackTrace();
+									}
+								}
+							});
+						}
 					} else if(txtUsername.getText().equals("") || txtUsername.getText().equals("Username") ||
 							txtPassword.getText().equals("") || txtPassword.getText().equals("Password")) {
 						lblLoginMessage.setText("아이디, 비밀번호를 입력해주세요.");
@@ -208,16 +235,29 @@ public class FrameLogin extends JFrame {
 					lblLoginMessage.setText("");
 					JOptionPane.showMessageDialog(null, "로그인에 성공했습니다.");
 					FrameLogin.this.dispose();
-					EventQueue.invokeLater(new Runnable() {
-						public void run() {
-							try {
-								MainFrame frame = new MainFrame(userId);
-								frame.setVisible(true);
-							} catch (Exception e) {
-								e.printStackTrace();
+					if (userId.equals("admin")) {
+						EventQueue.invokeLater(new Runnable() {
+							public void run() {
+								try {
+									ManagerFrame frame = new ManagerFrame();
+									frame.setVisible(true);
+								} catch (Exception e) {
+									e.printStackTrace();
+								}
 							}
-						}
-					});
+						});
+					} else {
+						EventQueue.invokeLater(new Runnable() {
+							public void run() {
+								try {
+									MainFrame frame = new MainFrame(userId);
+									frame.setVisible(true);
+								} catch (Exception e) {
+									e.printStackTrace();
+								}
+							}
+						});
+					}
 				} else if(txtUsername.getText().equals("") || txtUsername.getText().equals("Username") ||
 						txtPassword.getText().equals("") || txtPassword.getText().equals("Password")) {
 					lblLoginMessage.setText("아이디, 비밀번호를 입력해주세요.");
