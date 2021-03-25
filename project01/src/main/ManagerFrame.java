@@ -29,8 +29,7 @@ public class ManagerFrame extends JFrame {
 	public ManagerFrame() {
 		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(360, 150, 1200, 800
-				);
+		setBounds(360, 150, 1200, 800);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.BLACK);
 		contentPane.setBorder(new LineBorder(Color.BLACK, 2));
