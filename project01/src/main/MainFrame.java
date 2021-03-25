@@ -16,6 +16,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
+import login.FrameLogin;
+
 
 public class MainFrame extends JFrame {
 	
@@ -79,6 +81,14 @@ public class MainFrame extends JFrame {
 				lblX.setForeground(Color.WHITE);
 				Cursor normalCursor = new Cursor(Cursor.DEFAULT_CURSOR);
 				setCursor(normalCursor);
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				lblX.setForeground(Color.WHITE);
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				lblX.setForeground(Color.GRAY);
 			}
 			
 		});
@@ -1425,5 +1435,49 @@ public class MainFrame extends JFrame {
 		lblRefresh.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 12));
 		lblRefresh.setBounds(914, 42, 48, 15);
 		contentPane.add(lblRefresh);
+		
+		JLabel lblLogout = new JLabel("\uB85C\uADF8\uC544\uC6C3");
+		lblLogout.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (JOptionPane.showConfirmDialog(null, "·Î±×¾Æ¿ô ÇÏ½Ã°Ú½À´Ï±î?", "Confirmation", JOptionPane.YES_NO_OPTION) == 0) {
+					MainFrame.this.dispose();
+					EventQueue.invokeLater(new Runnable() {
+						public void run() {
+							try {
+								FrameLogin frame = new FrameLogin();
+								frame.setVisible(true);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						}
+					});
+				}	
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblLogout.setForeground(Color.GRAY);
+				Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+				setCursor(cursor);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblLogout.setForeground(Color.WHITE);
+				Cursor normalCursor = new Cursor(Cursor.DEFAULT_CURSOR);
+				setCursor(normalCursor);
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				lblLogout.setForeground(Color.WHITE);
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				lblLogout.setForeground(Color.GRAY);
+			}
+		});
+		lblLogout.setForeground(Color.WHITE);
+		lblLogout.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 19));
+		lblLogout.setBounds(1001, 79, 79, 27);
+		contentPane.add(lblLogout);
 	}
 }

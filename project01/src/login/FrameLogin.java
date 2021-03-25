@@ -176,6 +176,8 @@ public class FrameLogin extends JFrame {
 		txtPassword.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
+				Cursor cursor = new Cursor(Cursor.WAIT_CURSOR);
+				setCursor(cursor);
 				int key = e.getKeyCode();
 				if (key == KeyEvent.VK_ENTER) {
 					String userId = txtUsername.getText();
@@ -184,6 +186,8 @@ public class FrameLogin extends JFrame {
 					if (new CheckSuccessInput().check(userId, encryptionPwd) == "success") {
 						lblLoginMessage.setText("");
 						JOptionPane.showMessageDialog(null, "로그인에 성공했습니다.");
+						Cursor normalCursor = new Cursor(Cursor.DEFAULT_CURSOR);
+						setCursor(normalCursor);
 						FrameLogin.this.dispose();
 						if (userId.equals("admin")) {
 							EventQueue.invokeLater(new Runnable() {
@@ -211,8 +215,12 @@ public class FrameLogin extends JFrame {
 					} else if(txtUsername.getText().equals("") || txtUsername.getText().equals("Username") ||
 							txtPassword.getText().equals("") || txtPassword.getText().equals("Password")) {
 						lblLoginMessage.setText("아이디, 비밀번호를 입력해주세요.");
+						Cursor normalCursor = new Cursor(Cursor.DEFAULT_CURSOR);
+						setCursor(normalCursor);
 					} else {
 						lblLoginMessage.setText("아이디 혹은 비밀번호를 잘못입력하셨습니다.");
+						Cursor normalCursor = new Cursor(Cursor.DEFAULT_CURSOR);
+						setCursor(normalCursor);
 					}
 				}
 			}
@@ -230,10 +238,14 @@ public class FrameLogin extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				String userId = txtUsername.getText();
 				String encryptionPwd = new Encryption().encryptionPwd(txtPassword.getText());
+				Cursor cursor = new Cursor(Cursor.WAIT_CURSOR);
+				setCursor(cursor);
 				
 				if (new CheckSuccessInput().check(userId, encryptionPwd) == "success") {
 					lblLoginMessage.setText("");
 					JOptionPane.showMessageDialog(null, "로그인에 성공했습니다.");
+					Cursor normalCursor = new Cursor(Cursor.DEFAULT_CURSOR);
+					setCursor(normalCursor);
 					FrameLogin.this.dispose();
 					if (userId.equals("admin")) {
 						EventQueue.invokeLater(new Runnable() {
@@ -261,8 +273,12 @@ public class FrameLogin extends JFrame {
 				} else if(txtUsername.getText().equals("") || txtUsername.getText().equals("Username") ||
 						txtPassword.getText().equals("") || txtPassword.getText().equals("Password")) {
 					lblLoginMessage.setText("아이디, 비밀번호를 입력해주세요.");
+					Cursor normalCursor = new Cursor(Cursor.DEFAULT_CURSOR);
+					setCursor(normalCursor);
 				} else {
 					lblLoginMessage.setText("아이디 혹은 비밀번호를 잘못입력하셨습니다.");
+					Cursor normalCursor = new Cursor(Cursor.DEFAULT_CURSOR);
+					setCursor(normalCursor);
 				}
 			}
 			
@@ -314,9 +330,17 @@ public class FrameLogin extends JFrame {
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				lblX.setForeground(Color.WHITE);
+				lblX.setForeground(Color.BLACK);
 				Cursor normalCursor = new Cursor(Cursor.DEFAULT_CURSOR);
 				setCursor(normalCursor);
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				lblX.setForeground(Color.BLACK);
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				lblX.setForeground(Color.GRAY);
 			}
 		});
 		lblX.setForeground(Color.BLACK);
@@ -363,6 +387,14 @@ public class FrameLogin extends JFrame {
 				lblSignUp.setForeground(new Color(0, 0, 0));
 				Cursor normalCursor = new Cursor(Cursor.DEFAULT_CURSOR);
 				setCursor(normalCursor);
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				lblSignUp.setForeground(Color.BLACK);
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				lblSignUp.setForeground(Color.GRAY);
 			}
 		});
 		lblSignUp.setBounds(279, 358, 42, 15);

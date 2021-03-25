@@ -79,6 +79,14 @@ public class ManualFrame extends JFrame {
 					Cursor normalCursor = new Cursor(Cursor.DEFAULT_CURSOR);
 					setCursor(normalCursor);
 				}
+				@Override
+				public void mousePressed(MouseEvent e) {
+					lblX.setForeground(Color.WHITE);
+				}
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					lblX.setForeground(Color.GRAY);
+				}
 				
 			});
 			lblX.setForeground(Color.WHITE);
