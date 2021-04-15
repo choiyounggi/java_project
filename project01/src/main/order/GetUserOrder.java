@@ -1,16 +1,19 @@
-package main;
+package main.order;
 
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
-public class UpdatePoint {
-	public UpdatePoint(int point, String id) {
+public class GetUserOrder {
+
+	public String order() {
+		String order = null;
 		Properties props = new Properties();
 		props.setProperty("dataSourceClassName", "oracle.jdbc.pool.OracleDataSource");
 		props.setProperty("dataSource.url", "jdbc:oracle:thin:@localhost:1521/XEPDB1");
@@ -24,20 +27,26 @@ public class UpdatePoint {
 		try {
 			Connection conn = ds.getConnection();
 			
-			PreparedStatement pstmt = 
-					conn.prepareStatement("UPDATE users SET membership_point = ? WHERE user_name = ?");
-			
-			pstmt.setInt(1, point);
-			pstmt.setString(1, id);
-			int row = pstmt.executeUpdate();
-			
-			System.out.printf("%s: 맴버쉽 포인트 1000원이 추가되었습니다.\n", id);
+			String sql = "SELECT USER_ORDER FROM basket";
 
-			if (pstmt != null) pstmt.close();
-			if (conn != null) conn.close();			
+			PreparedStatement pstmt = 
+						conn.prepareStatement(sql);
+			
+			ResultSet rs = pstmt.executeQuery();							
+			while (rs.next()) {
+				order = rs.getString("user_order");
+
+			}
+			
+			rs.close();
+			pstmt.close();
+			conn.close();				
 			
 		} catch (SQLException e) {			
 			e.printStackTrace();
 		}
-	}
+		
+		return order;
+	}	
+	
 }

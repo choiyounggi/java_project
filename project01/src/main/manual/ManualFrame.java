@@ -1,4 +1,4 @@
-package main;
+package main.manual;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -19,6 +19,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import login.FrameLogin;
+import main.UpdateBasket;
 
 import javax.swing.JTextPane;
 import javax.swing.JRadioButton;
@@ -70,10 +71,22 @@ public class ManualFrame extends JFrame {
 				@Override
 				public void mouseEntered(MouseEvent e) {
 					lblX.setForeground(Color.GRAY);
+					Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+					setCursor(cursor);
 				}
 				@Override
 				public void mouseExited(MouseEvent e) {
 					lblX.setForeground(Color.WHITE);
+					Cursor normalCursor = new Cursor(Cursor.DEFAULT_CURSOR);
+					setCursor(normalCursor);
+				}
+				@Override
+				public void mousePressed(MouseEvent e) {
+					lblX.setForeground(Color.WHITE);
+				}
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					lblX.setForeground(Color.GRAY);
 				}
 				
 			});
@@ -138,10 +151,14 @@ public class ManualFrame extends JFrame {
 					@Override
 					public void mouseEntered(MouseEvent e) {
 						lblX.setForeground(Color.GRAY);
+						Cursor cursor = new Cursor(Cursor.HAND_CURSOR);
+						setCursor(cursor);
 					}
 					@Override
 					public void mouseExited(MouseEvent e) {
 						lblX.setForeground(Color.WHITE);
+						Cursor normalCursor = new Cursor(Cursor.DEFAULT_CURSOR);
+						setCursor(normalCursor);
 					}
 					
 				});

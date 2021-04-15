@@ -34,7 +34,7 @@ public class CreateBasket {
 			
 			int row = pstmt.executeUpdate();
 			
-			System.out.printf("%d행이 업데이트 되었습니다.", row);
+			System.out.printf("%d행이 업데이트 되었습니다.\n", row);
 			System.out.println("테이블 생성 완료");
 			
 			insert(id);

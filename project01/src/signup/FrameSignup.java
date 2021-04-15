@@ -10,8 +10,8 @@ import javax.swing.border.LineBorder;
 
 import login.Encryption;
 import login.FrameLogin;
-import main.ManualFrame;
-import main.OrderFrame;
+import main.manual.ManualFrame;
+import main.order.OrderFrame;
 
 import java.awt.FlowLayout;
 import java.awt.SystemColor;

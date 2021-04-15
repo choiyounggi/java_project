@@ -1,19 +1,18 @@
-package main;
+package main.manager;
 
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
-public class GetTotalPrice {
+public class Modify_point {
 
-	public int totalPrice() {
-		int total_price = 0;
+	public Modify_point(String id, int num) {
+		
 		Properties props = new Properties();
 		props.setProperty("dataSourceClassName", "oracle.jdbc.pool.OracleDataSource");
 		props.setProperty("dataSource.url", "jdbc:oracle:thin:@localhost:1521/XEPDB1");
@@ -27,26 +26,23 @@ public class GetTotalPrice {
 		try {
 			Connection conn = ds.getConnection();
 			
-			String sql = "SELECT total_price FROM basket";
-
 			PreparedStatement pstmt = 
-						conn.prepareStatement(sql);
+					conn.prepareStatement("UPDATE users SET membership_point = membership_point + ? WHERE user_name = ?");
 			
-			ResultSet rs = pstmt.executeQuery();							
-			while (rs.next()) {
-				total_price = rs.getInt("total_price");
+			pstmt.setInt(1, num);
+			pstmt.setString(2, id);
+			
+			int row = pstmt.executeUpdate();
+			
+			System.out.printf("포인트를 수정 완료\n");
 
-			}
-			
-			rs.close();
-			pstmt.close();
-			conn.close();				
+			if (pstmt != null) pstmt.close();
+			if (conn != null) conn.close();			
 			
 		} catch (SQLException e) {			
 			e.printStackTrace();
 		}
 		
-		return total_price;
 	}
 	
 }
