@@ -18,7 +18,7 @@ import javax.swing.border.LineBorder;
 
 import main.CreateBasket;
 import main.MainFrame;
-import main.ManagerFrame;
+import main.manager.ManagerFrame;
 import signup.FrameSignup;
 
 import java.awt.Font;

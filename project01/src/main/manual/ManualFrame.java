@@ -1,4 +1,4 @@
-package main;
+package main.manual;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -19,6 +19,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import login.FrameLogin;
+import main.UpdateBasket;
 
 import javax.swing.JTextPane;
 import javax.swing.JRadioButton;

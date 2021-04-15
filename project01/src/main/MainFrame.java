@@ -17,6 +17,9 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import login.FrameLogin;
+import main.manual.ManualFrame;
+import main.order.GetTotalPrice;
+import main.order.OrderFrame;
 
 
 public class MainFrame extends JFrame {
@@ -1441,6 +1444,7 @@ public class MainFrame extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (JOptionPane.showConfirmDialog(null, "로그아웃 하시겠습니까?", "Confirmation", JOptionPane.YES_NO_OPTION) == 0) {
+					new DeleteBasket();
 					MainFrame.this.dispose();
 					EventQueue.invokeLater(new Runnable() {
 						public void run() {

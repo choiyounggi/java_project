@@ -1,4 +1,4 @@
-package main;
+package main.manual;
 
 import java.io.PrintWriter;
 import java.sql.Connection;

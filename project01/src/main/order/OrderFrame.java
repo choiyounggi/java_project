@@ -1,4 +1,4 @@
-package main;
+package main.order;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -14,6 +14,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
+
+import main.CreateBasket;
+import main.DeleteBasket;
+import main.LookupPoint;
+
 import javax.swing.JTextPane;
 
 public class OrderFrame extends JFrame {

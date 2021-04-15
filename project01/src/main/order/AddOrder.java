@@ -1,4 +1,4 @@
-package main;
+package main.order;
 
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -9,8 +9,9 @@ import java.util.Properties;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
-public class UpdatePoint {
-	public UpdatePoint(int usedPoint, String id) {
+public class AddOrder {
+
+	public AddOrder(String id, String order, int payment) {
 		Properties props = new Properties();
 		props.setProperty("dataSourceClassName", "oracle.jdbc.pool.OracleDataSource");
 		props.setProperty("dataSource.url", "jdbc:oracle:thin:@localhost:1521/XEPDB1");
@@ -25,20 +26,22 @@ public class UpdatePoint {
 			Connection conn = ds.getConnection();
 			
 			PreparedStatement pstmt = 
-					conn.prepareStatement("UPDATE users SET membership_point = membership_point - ? WHERE user_name = ?");
-			
-			pstmt.setInt(1, usedPoint);
-			pstmt.setString(2, id);
+					conn.prepareStatement("INSERT INTO order_list(user_name, user_order, payment, order_date) VALUES(?, ?, ?, sysdate)");
+
+			pstmt.setString(1, id);
+			pstmt.setString(2, order);
+			pstmt.setInt(3, payment);
 			
 			int row = pstmt.executeUpdate();
 			
-			System.out.printf("포인트를 사용 완료\n");
-
+			System.out.printf("%d행이 업데이트 되었습니다.\n", row);
+			
 			if (pstmt != null) pstmt.close();
-			if (conn != null) conn.close();			
+			if (conn != null) conn.close();				
 			
 		} catch (SQLException e) {			
 			e.printStackTrace();
 		}
 	}
+	
 }

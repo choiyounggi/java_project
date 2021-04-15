@@ -1,4 +1,4 @@
-package main;
+package main.order;
 
 import java.io.PrintWriter;
 import java.sql.Connection;
