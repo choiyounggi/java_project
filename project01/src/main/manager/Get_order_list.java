@@ -34,7 +34,7 @@ public class Get_order_list {
 			
 			ResultSet rs = pstmt.executeQuery();	
 			while (rs.next()) {
-				result += (String.format("[%s] - 주문날짜 : %s, 주문 총액: %d\n%s\n\n", rs.getString("user_name"), rs.getString("order_date"), rs.getInt("payment"), rs.getString("user_order")));	
+				result += (String.format("[%s]\n주문날짜 : %s\n주문 총액: %d\n[주문내역]\n%s\n\n", rs.getString("user_name"), rs.getString("order_date"), rs.getInt("payment"), rs.getString("user_order")));	
 			}
 			
 			rs.close();
