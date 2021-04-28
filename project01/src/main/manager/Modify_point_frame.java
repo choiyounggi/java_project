@@ -16,6 +16,9 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import javax.swing.border.LineBorder;
+
+import main.LookupPoint;
+
 import javax.swing.JTextField;
 
 
@@ -165,6 +168,8 @@ public class Modify_point_frame extends JFrame {
 				}
 				else if (overlap == null) {
 					JOptionPane.showMessageDialog(null, "존재하지 않는 사용자입니다.");
+				} else if (new LookupPoint().point(id.getText()) < Integer.parseInt(point.getText())) {
+					JOptionPane.showMessageDialog(null, "차감할 포인트가 기존 포인트보다 많습니다. 다시 입력해주세요.");
 				} else if (point.getText().equals("") || Integer.parseInt(point.getText()) <= 0) {
 					JOptionPane.showMessageDialog(null, "포인트를 정확히 입력해주세요.");
 				}else {
