@@ -2,6 +2,7 @@ package main.order;
 
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
@@ -25,7 +26,7 @@ public class OrderFrame extends JFrame {
 	int usedPoint = 0;
 	private Image img_logo = new ImageIcon(OrderFrame.class.getResource("res/logo3.png")).getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
 	private JPanel contentPane;
-
+	
 	public OrderFrame(String id) {
 		int point = new LookupPoint().point(id);
 		setUndecorated(true);
