@@ -357,7 +357,7 @@ public class Main_frame extends JFrame {
 		DP_name.setBounds(821, 603, 216, 21);
 		contentPane.add(DP_name);
 		
-		JLabel lblDeleteBtn = new JLabel("\uCD94\uAC00");
+		JLabel lblDeleteBtn = new JLabel("\uC0AD\uC81C");
 		lblDeleteBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
